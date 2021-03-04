@@ -33,7 +33,7 @@ SECRET_KEY = env.str('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['galileo', 'localhost']
+ALLOWED_HOSTS = ['galileo', '192.168.11.10', 'localhost']
 
 
 # Application definition
