@@ -25,7 +25,7 @@
                                 <a class="nav-link text-light">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light">Privacy</a>
+                                <a href="{% url 'about' %}" class="nav-link text-light">About</a>
                             </li>
                             {% if user.is_authenticated %}
 
