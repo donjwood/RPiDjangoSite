@@ -37,9 +37,9 @@ def get_sense_hat_data():
     sense_hat_data['temperature'] = sense.get_temperature()
     sense_hat_data['temperatureFromPressure'] = sense.get_temperature_from_pressure()
     sense_hat_data['humidity'] = sense.get_humidity()
-    sense_hat_data['pitch'] = sense.get_orientation()["pitch"]()
-    sense_hat_data['roll'] = sense.get_orientation()["roll"]()
-    sense_hat_data['yaw'] = sense.get_orientation()["yaw"]()
+    sense_hat_data['pitch'] = sense.get_orientation()['pitch']
+    sense_hat_data['roll'] = sense.get_orientation()['roll']
+    sense_hat_data['yaw'] = sense.get_orientation()['yaw']
     sense_hat_data['cpuTemp'] = get_cpu_temp()
 
     return sense_hat_data
