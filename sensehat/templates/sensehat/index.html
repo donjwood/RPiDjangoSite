@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <div class="card mx-auto">
+        <h5 class="card-header">Sense Hat Data</h5>
+        <div class="card-body">
+            <div class="card-text">
+                <div class="row">
+                    <div class="col-12">
+                        CPU Temp: {{ sense_hat_data.cpuTemp }}C<br/>
+                        Temperature:  {{ sense_hat_data.temperature }}F<br/>
+                        Pressure:  {{ sense_hat_data.pressure }}mbar <br/>
+                        Temp from Pressure Sensor: {{ sense_hat_data.temperatureFromPressure }}F<br/>
+                        Humidity: {{ sense_hat_data.humidity }}%<br/>
+                        Pitch: {{ sense_hat_data.pitch }}<br/>
+                        Roll: {{ sense_hat_data.roll }}<br/>
+                        Yaw: {{ sense_hat_data.yaw }}<br/><br/>
+                        Last Updated at {% now "F jS g:i:s A" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

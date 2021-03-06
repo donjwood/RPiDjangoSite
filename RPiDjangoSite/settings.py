@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'siteroot.apps.SiterootConfig'
+    'siteroot.apps.SiterootConfig',
+    'sensehat.apps.SensehatConfig',
 ]
 
 MIDDLEWARE = [
