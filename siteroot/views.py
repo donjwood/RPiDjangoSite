@@ -22,7 +22,7 @@ def edit_user(request):
         if form.is_valid():
 
             request.user.save()
-            return HttpResponseRedirect(reverse('index') )
+            return HttpResponseRedirect(reverse('edit_user_done') )
 
     else:
         form = EditUserForm(instance=request.user)
@@ -32,4 +32,7 @@ def edit_user(request):
         'user': request.user,
     }
 
-    return render(request, 'users/edit.html', context=context)
+    return render(request, 'users/edit_user.html', context=context)
+
+def edit_user_done(request):
+    return render(request, 'users/edit_user_done.html')
