@@ -1,4 +1,11 @@
 {% extends "base_generic.html" %}
+{% load unit_converters %}
+
+{% block title %}Sense Hat Data{% endblock %}
+
+{% block head %}
+<meta http-equiv="refresh" content="30">
+{% endblock %}
 
 {% block content %}
     <div class="card mx-auto">
@@ -7,14 +14,14 @@
             <div class="card-text">
                 <div class="row">
                     <div class="col-12">
-                        CPU Temp: {{ sense_hat_data.cpuTemp }}C<br/>
-                        Temperature:  {{ sense_hat_data.temperature }}F<br/>
-                        Pressure:  {{ sense_hat_data.pressure }}mbar <br/>
-                        Temp from Pressure Sensor: {{ sense_hat_data.temperatureFromPressure }}F<br/>
-                        Humidity: {{ sense_hat_data.humidity }}%<br/>
-                        Pitch: {{ sense_hat_data.pitch }}<br/>
-                        Roll: {{ sense_hat_data.roll }}<br/>
-                        Yaw: {{ sense_hat_data.yaw }}<br/><br/>
+                        CPU Temp: {{ sense_hat_data.cpuTemp | celsius_to_fahrenheit | floatformat:2 }} F<br/>
+                        Temperature:  {{ sense_hat_data.temperature | celsius_to_fahrenheit | floatformat:2 }} F<br/>
+                        Pressure:  {{ sense_hat_data.pressure | mbar_to_hg | floatformat:2 }} inHg <br/>
+                        Temp from Pressure Sensor: {{ sense_hat_data.temperatureFromPressure | celsius_to_fahrenheit | floatformat:2 }} F<br/>
+                        Humidity: {{ sense_hat_data.humidity | floatformat:1 }}%<br/>
+                        Pitch: {{ sense_hat_data.pitch | floatformat:2 }}<br/>
+                        Roll: {{ sense_hat_data.roll | floatformat:2 }}<br/>
+                        Yaw: {{ sense_hat_data.yaw | floatformat:2 }}<br/><br/>
                         Last Updated at {% now "F jS g:i:s A" %}
                     </div>
                 </div>

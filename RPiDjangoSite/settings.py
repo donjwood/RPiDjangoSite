@@ -47,8 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'siteroot.apps.SiterootConfig',
-    'sensehat.apps.SensehatConfig',
 ]
+
+if env.bool('ENABLE_SENSE_HAT_APP'):
+
+    INSTALLED_APPS += [
+        'sensehat.apps.SensehatConfig',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,6 +80,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'RPiDjangoSite.context_processors.get_env_vars'
             ],
+            'libraries': {
+                'unit_converters': 'RPiDjangoSite.templatetags.unit_converters',
+            }
         },
     },
 ]

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
@@ -14,7 +15,7 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
-
+@login_required
 def edit_user(request):
 
     if request.method == 'POST':

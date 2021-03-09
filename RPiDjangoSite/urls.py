@@ -16,6 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include
 from django.urls import path
+import environ
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
 
 urlpatterns = [
     path('', include('siteroot.urls')),
@@ -23,6 +31,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
-urlpatterns += [
-    path('sensehat/', include('sensehat.urls')),
-]
+if env.bool('ENABLE_SENSE_HAT_APP'):
+    urlpatterns += [
+        path('sensehat/', include('sensehat.urls')),
+    ]
