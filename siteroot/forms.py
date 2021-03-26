@@ -10,7 +10,7 @@ class EditUserForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'email')
 
     def save(self, commit=True):
         user = super(forms.RegistrationForm, self).save(commit=False)
