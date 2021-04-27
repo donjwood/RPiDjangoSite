@@ -41,3 +41,4 @@ class EditUserFormTest(TestCase):
         self.assertFalse(form.is_valid())
         form.data['email'] = 'foobar@nowhere.com'
         self.assertTrue(form.is_valid())
+        
